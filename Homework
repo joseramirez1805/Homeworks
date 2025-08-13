@@ -1,17 +1,17 @@
-1. at(index): Devuelve el elemento en la posición index; admite índices negativos para contar desde el final del array
+1. at(index)
 const arr = [10, 20, 30];
 console.log(arr.at(1));    // 20
 console.log(arr.at(-1));   // 30 (último elemento)
 
-2. slice(start, end): Crea un nuevo array con los elementos desde start hasta end (excluido), sin modificar el original
+2. slice(start, end)
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.slice(1, 4)); // [2, 3, 4]
 
-3. forEach(callback): Ejecuta callback(elemento, índice, array) para cada elemento; no devuelve nada.
+3. forEach(callback)
 const arr = ['a', 'b', 'c'];
 arr.forEach((el, i) => console.log(`Índice ${i}: ${el}`));
 
-4. map(callback): Retorna un nuevo array con los resultados de aplicar callback a cada elemento.
+4. map(callback)
 const nums = [1, 2, 3];
 const dobles = nums.map(n => n * 2);
 console.log(dobles); // [2, 4, 6]
