@@ -1,0 +1,23 @@
+Las funciones regulares en JavaScript tienen una sintaxis más tradicional y cuentan con su propio contexto de ejecución, lo que significa que tienen su propio valor de this. Esto las hace útiles cuando se trabaja con objetos o clases, ya que pueden acceder correctamente a sus propiedades internas. Además, las funciones regulares pueden utilizarse como constructores con la palabra clave new, y tienen acceso al objeto especial arguments, que contiene todos los argumentos pasados a la función. También pueden ser elevadas (hoisting), lo que permite llamarlas antes de que sean declaradas en el código.
+Por otro lado, las funciones de flecha tienen una sintaxis más concisa y moderna. No tienen su propio this, sino que heredan el contexto de this del lugar donde fueron definidas, lo que puede ser útil en funciones callback o cuando se trabaja dentro de métodos que necesitan mantener el contexto externo. Sin embargo, no pueden usarse como constructores, no tienen acceso al objeto arguments, y no se elevan, por lo que deben ser definidas antes de ser utilizadas.
+2 funciones que determinan si un número es par o impar:
+Función regular:
+function verificarParidad(numero) {
+  if (numero % 2 === 0) {
+    console.log(`${numero} es par`);
+  } else {
+    console.log(`${numero} es impar`);
+  }
+}
+Función de flecha:
+const verificarParidadFlecha = (numero) => {
+  if (numero % 2 === 0) {
+    console.log(`${numero} es par`);
+  } else {
+    console.log(`${numero} es impar`);
+  }
+};
+Por ejemplo:
+verificarParidad(5);         // 5 es impar
+verificarParidadFlecha(8);   // 8 es par
+
