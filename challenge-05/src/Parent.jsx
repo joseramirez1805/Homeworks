@@ -4,11 +4,10 @@ import { Child } from './Child';
 export const Parent = () => {
   const list = [2, 4, 6, 8, 10];
   const [valor, setValor] = useState(0);
-  const [ultimoNumero, setUltimoNumero] = useState(null); // Nuevo estado
-
+  const [ultimoNumero, setUltimoNumero] = useState(null); 
   const increment = useCallback((num) => {
     setValor((prev) => prev + num);
-    setUltimoNumero(num); // Guardar el número clickeado
+    setUltimoNumero(num); 
   }, []);
 
   return (
