@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment, decrement, incrementBy } from './slices/counterSlice';
+import { push, pop } from './slices/stackSlice';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const counter = useSelector((state) => state.counter.value);
+  const stackItems = useSelector((state) => state.stack.items);
+  const dispatch = useDispatch();
+
+  const [incrementValue, setIncrementValue] = useState();
+  const [stackItem, setStackItem] = useState('');
+
+  const handleIncrementBy = () => {
+    const value = parseInt(incrementValue, 10);
+    if (!isNaN(value)) {
+      dispatch(incrementBy(value));
+      setIncrementValue(0);
+    }
+  };
+
+  const handlePush = () => {
+    if (stackItem.trim()) {
+      dispatch(push(stackItem));
+      setStackItem('');
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div style={{ padding: '20px' }}>
+      <h1>Redux Challenge 10</h1>
+      
+      <h2>Counter: {counter}</h2>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
+      
+      <div style={{ marginTop: '20px' }}>
+        <input
+          type="number"
+          value={incrementValue}
+          onChange={e => setIncrementValue(Number(e.target.value))}
+        />
+        <button onClick={() => dispatch(incrementBy(incrementValue))}>
+          Increment
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      
+      <h2>Stack: {stackItems.join(', ')}</h2>
+      <input 
+        type="text" 
+        value={stackItem} 
+        onChange={(e) => setStackItem(e.target.value)} 
+        placeholder="Ítem para push" 
+      />
+      <button onClick={handlePush}>Push</button>
+      <button onClick={() => dispatch(pop())}>Pop</button>
+    </div>
+  );
 }
 
-export default App
+export default App;
