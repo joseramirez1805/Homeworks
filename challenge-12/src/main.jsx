@@ -4,12 +4,13 @@ import './index.css'
 //import App from './App.jsx'
 import {Provider} from 'react-redux'
 import {store} from './store/store.jsx' 
-import { Registro } from './components/Register.jsx'
+//import { Registro } from './components/Register.jsx'
+import { Crud } from './components/Crud.jsx'
 
 createRoot(document.getElementById('root')).render(
   <Provider store = {store}>
     <StrictMode>
-      <Registro/>
+      <Crud/>
     </StrictMode>
   </Provider>
 )
