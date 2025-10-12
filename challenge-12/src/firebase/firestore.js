@@ -10,17 +10,27 @@ const useCollection = (table) => {
 
   const getAll = async (condition) => {
     setResults([])
-    let resDoc = null, q = null;
-    if(condition && condition.length == 3) {
-      q = query( collection(db, table), where(condition[0], condition[1], condition[2]));
-    } else {
-      q = query( collection(db, table) );
-    }
-    resDoc = await getDocs( q )
+    setError(null)
+    setIsPending(true)
+    
+    try {
+      let resDoc = null, q = null;
+      if(condition && condition.length == 3) {
+        q = query( collection(db, table), where(condition[0], condition[1], condition[2]));
+      } else {
+        q = query( collection(db, table) );
+      }
+      resDoc = await getDocs( q )
 
-    resDoc.forEach(doc => {
-      setResults( list => [ ...list, { ...doc.data(), id: doc.id } ] )
-    });
+      resDoc.forEach(doc => {
+        setResults( list => [ ...list, { ...doc.data(), id: doc.id } ] )
+      });
+      setIsPending(false)
+    } catch (err) {
+      console.error('Error getting documents:', err)
+      setError('Error al obtener los documentos: ' + err.message)
+      setIsPending(false)
+    }
   }
 
   // add a new document

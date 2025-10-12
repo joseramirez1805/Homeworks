@@ -51,36 +51,104 @@ export const Crud = () => {
     }
 
     return (
-        <>
-            <input type="text" onChange={handleSetUser} value={user.name} />
-            <button type="button" onClick={save}> Guardar </button>
-            {
-                isPending ? <span> Saving... </span> : ''
-            }
-            {error && <p>Error: {error}</p>}
-            <ul>
-                {
-                    results.map( item => {
-                        return (
-                            <li key={item.id}>
-                                {editingId === item.id ? (
-                                    <>
-                                        <input value={editValue} onChange={(e) => setEditValue(e.target.value)} />
-                                        <button onClick={() => saveEdit(item.id)}>Guardar</button>
-                                        <button onClick={cancelEdit}>Cancelar</button>
-                                    </>
-                                ) : (
-                                    <>
-                                        <span>{ item.name || item.title }</span>
-                                        <button onClick={() => startEdit(item)}>Editar</button>
-                                        <button onClick={() => handleDelete(item.id)}>Borrar</button>
-                                    </>
-                                )}
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </>
+        <div style={{ padding: '20px' }}>
+            <h2>CRUD con Firestore</h2>
+            
+            <div style={{ marginBottom: '20px' }}>
+                <input 
+                    type="text" 
+                    placeholder="Nombre del usuario"
+                    onChange={handleSetUser} 
+                    value={user.name}
+                    style={{ marginRight: '10px', padding: '5px' }}
+                />
+                <button 
+                    type="button" 
+                    onClick={save}
+                    disabled={isPending || !user.name.trim()}
+                    style={{ padding: '5px 10px' }}
+                > 
+                    {isPending ? 'Guardando...' : 'Guardar'} 
+                </button>
+            </div>
+
+            {error && (
+                <div style={{ 
+                    color: 'red', 
+                    backgroundColor: '#ffe6e6', 
+                    padding: '10px', 
+                    borderRadius: '5px',
+                    marginBottom: '20px'
+                }}>
+                    <strong>Error:</strong> {error}
+                </div>
+            )}
+
+            <div>
+                <h3>Usuarios ({results.length})</h3>
+                {results.length === 0 && !isPending && !error && (
+                    <p>No hay usuarios registrados</p>
+                )}
+                <ul style={{ listStyle: 'none', padding: 0 }}>
+                    {results.map(item => (
+                        <li key={item.id} style={{ 
+                            border: '1px solid #ccc', 
+                            margin: '5px 0', 
+                            padding: '10px',
+                            borderRadius: '5px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px'
+                        }}>
+                            {editingId === item.id ? (
+                                <>
+                                    <input 
+                                        value={editValue} 
+                                        onChange={(e) => setEditValue(e.target.value)}
+                                        style={{ flex: 1, padding: '5px' }}
+                                    />
+                                    <button 
+                                        onClick={() => saveEdit(item.id)}
+                                        disabled={isPending}
+                                        style={{ padding: '5px 10px' }}
+                                    >
+                                        Guardar
+                                    </button>
+                                    <button 
+                                        onClick={cancelEdit}
+                                        style={{ padding: '5px 10px' }}
+                                    >
+                                        Cancelar
+                                    </button>
+                                </>
+                            ) : (
+                                <>
+                                    <span style={{ flex: 1 }}>{item.name || item.title}</span>
+                                    <button 
+                                        onClick={() => startEdit(item)}
+                                        style={{ padding: '5px 10px' }}
+                                    >
+                                        Editar
+                                    </button>
+                                    <button 
+                                        onClick={() => handleDelete(item.id)}
+                                        disabled={isPending}
+                                        style={{ 
+                                            padding: '5px 10px',
+                                            backgroundColor: '#ff6b6b',
+                                            color: 'white',
+                                            border: 'none',
+                                            borderRadius: '3px'
+                                        }}
+                                    >
+                                        Borrar
+                                    </button>
+                                </>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     )
 }
