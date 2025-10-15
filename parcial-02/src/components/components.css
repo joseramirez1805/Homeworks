@@ -1,0 +1,87 @@
+/* Estilos comunes para todas las secciones */
+.notifications-section,
+.posts-section,
+.dms-section {
+  padding: 12px;
+}
+
+/* Contenedores de inputs */
+.input-container {
+  margin-bottom: 16px;
+}
+
+.input-container input {
+  margin-right: 8px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-container button {
+  padding: 6px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4a90e2;
+  color: white;
+  cursor: pointer;
+}
+
+.input-container button:hover {
+  background-color: #357abd;
+}
+
+/* Estilos para la pila de notificaciones */
+.notifications-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Estilos para la lista de posts */
+.posts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.posts-list li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.posts-list button {
+  margin-left: 8px;
+  padding: 4px 8px;
+  font-size: 0.8em;
+  border: none;
+  border-radius: 4px;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+}
+
+.posts-list button:hover {
+  background-color: #c82333;
+}
+
+/* Estilos para la cola de mensajes */
+.dms-list {
+  list-style: none;
+  padding: 0;
+}
+
+.dms-list li {
+  margin-bottom: 8px;
+  padding: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+/* Estilos comunes para elementos small */
+.notifications-list li small,
+.posts-list li small,
+.dms-list li small {
+  color: #666;
+  margin-left: 8px;
+}
