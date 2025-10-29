@@ -1,0 +1,167 @@
+/* Estilos generales para las páginas */
+.page-container {
+  padding: 24px;
+  background: #1E2530;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 10px;
+}
+
+.page-content {
+  color: #B8C2CC;
+}
+
+/* Estilos para formularios */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #2c3e50;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 4px;
+}
+
+/* Estilos para mensajes */
+.message-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #2c3e50;
+  align-items: center;
+}
+
+.message-from {
+  font-weight: bold;
+  color: #fff;
+}
+
+.message-time {
+  color: #718096;
+}
+
+/* Estilos para notificaciones */
+.notification-option {
+  margin: 12px 0;
+}
+
+.notification-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+/* Estilos para la sección de ayuda */
+.faq-item {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #2c3e50;
+  border-radius: 4px;
+}
+
+.faq-item h4 {
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+/* Botones */
+.btn-save {
+  background: #4299e1;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-save:hover {
+  background: #3182ce;
+}
+
+/* Estilos para el formulario de tickets */
+.ticket-form {
+  max-width: 600px;
+}
+
+.form-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #2c3e50;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #2c3e50;
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* Estilos para el estado de la red */
+.network-status {
+  padding: 20px;
+}
+
+.status-overview {
+  margin-bottom: 24px;
+}
+
+.status-time {
+  color: #718096;
+  font-size: 14px;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #2c3e50;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.service-name {
+  font-weight: bold;
+  color: #fff;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.status-indicator.operational {
+  background: #48bb78;
+}
+
+.service-uptime {
+  color: #718096;
+}
