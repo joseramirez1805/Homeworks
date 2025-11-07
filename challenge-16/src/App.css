@@ -1,0 +1,127 @@
+:root{
+  --bg: #0f1724;
+  --panel: #0b1220;
+  --muted: #94a3b8;
+  --accent: #00a3ff;
+  --accent-2: #ffb000;
+  --card-radius: 10px;
+}
+
+html,body,#root{
+  height:100%;
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#071226 0%, #081428 100%);
+  color: #e6eef8;
+}
+
+.app-root{
+  max-width:1200px;
+  margin:24px auto;
+  padding:20px;
+}
+
+h1,h2,h3{ margin:0 0 12px 0 }
+
+.forms{
+  display:flex;
+  gap:16px;
+  margin-bottom:18px;
+  flex-wrap:wrap;
+}
+
+.form-segment{
+  background: rgba(255,255,255,0.03);
+  padding:12px;
+  border-radius: var(--card-radius);
+  min-width:260px;
+  flex:1 1 320px;
+  box-shadow: 0 4px 18px rgba(2,6,23,0.6);
+}
+
+.form-segment input,
+.form-segment select{
+  width:100%;
+  padding:10px 12px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color:var(--muted);
+  outline:none;
+  box-sizing:border-box;
+}
+
+.form-segment input:focus,
+.form-segment select:focus{
+  border-color: rgba(0,163,255,0.9);
+  color: #e6eef8;
+}
+
+button{
+  cursor:pointer;
+  padding:10px 14px;
+  border-radius:8px;
+  border:0;
+  background: linear-gradient(90deg,var(--accent), #2bb7ff);
+  color:#06121b;
+  font-weight:600;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+button:hover:not(:disabled){ transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,163,255,0.12);} 
+
+.graph-wrap{
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+
+.graph-container{
+  background: rgba(255,255,255,0.02);
+  border-radius: 10px;
+  padding:12px;
+  flex:1 1 620px;
+  min-height:420px;
+  box-shadow: 0 6px 22px rgba(2,6,23,0.6);
+}
+
+.list-section{
+  background: rgba(255,255,255,0.02);
+  padding:12px;
+  border-radius:10px;
+  width:320px;
+  flex:0 0 320px;
+}
+
+.people-list{
+  margin-top:10px;
+  text-align:left;
+  color:var(--muted);
+}
+
+.people-list ul{ padding-left:18px }
+.people-list li{ margin:6px 0 }
+
+/* responsive */
+@media (max-width:980px){
+  .forms{ flex-direction:column }
+  .graph-wrap{ flex-direction:column }
+  .list-section{ width:100%; flex:1 1 auto }
+  .graph-container{ width:100% }
+}
+
+/* legacy logo/card rules (preserve original useful bits) */
+.logo { height:6em; padding:1.5em; will-change:filter; transition:filter 300ms }
+.logo:hover { filter: drop-shadow(0 0 2em #646cffaa) }
+.logo.react:hover { filter: drop-shadow(0 0 2em #61dafbaa) }
+
+@keyframes logo-spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@media (prefers-reduced-motion: no-preference){ a:nth-of-type(2) .logo{ animation:logo-spin infinite 20s linear } }
+
