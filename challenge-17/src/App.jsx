@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Challenge - 08</h1>
+      <h1>Challenge - 17</h1>
       <h2>Pila de Libros (Stack)</h2>
 
       {/* Formulario para añadir libro */}
