@@ -1,0 +1,116 @@
+.app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  .logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+
+    &:hover {
+      filter: drop-shadow(0 0 2em #646cffaa);
+    }
+
+    &.react:hover {
+      filter: drop-shadow(0 0 2em #61dafbaa);
+    }
+  }
+
+  .card {
+    padding: 2em;
+  }
+
+  .read-the-docs {
+    color: #888;
+  }
+
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+}
+
+/* Styles for App elements */
+.app {
+  .title {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.4rem;
+  }
+
+  .subtitle {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .form {
+    display: inline-block;
+    text-align: left;
+    margin: 1rem 0 2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    min-width: 320px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+  }
+
+  .label {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .input {
+    padding: 0.5rem 0.6rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+  }
+
+  .button {
+    margin-top: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background-color: #646cff;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: left;
+  }
+
+  .listItem {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .empty {
+    color: rgba(255,255,255,0.7);
+  }
+}

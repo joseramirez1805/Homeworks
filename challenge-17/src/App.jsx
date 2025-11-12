@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Stack from './Stack';
-import './App.css'; // Si quieres estilos, edita este archivo
+import styles from './App.module.scss'; // ahora usamos SASS module
 
 function App() {
   const [stack, setStack] = useState(new Stack());
@@ -43,43 +43,43 @@ function App() {
   const booksToDisplay = stack.print();
 
   return (
-    <div className="App">
-      <h1>Challenge - 17</h1>
-      <h2>Pila de Libros (Stack)</h2>
+    <div className={styles.app}>
+      <h1 className={styles.title}>Challenge - 17</h1>
+      <h2 className={styles.subtitle}>Pila de Libros (Stack)</h2>
 
       {/* Formulario para añadir libro */}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nombre:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          ISBN:
-          <input type="text" value={isbn} onChange={(e) => setIsbn(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Autor:
-          <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Editorial:
-          <input type="text" value={editorial} onChange={(e) => setEditorial(e.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Añadir Libro</button>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.field}>
+          <label className={styles.label}>Nombre:</label>
+          <input className={styles.input} type="text" value={name} onChange={(e) => setName(e.target.value)} />
+        </div>
+
+        <div className={styles.field}>
+          <label className={styles.label}>ISBN:</label>
+          <input className={styles.input} type="text" value={isbn} onChange={(e) => setIsbn(e.target.value)} />
+        </div>
+
+        <div className={styles.field}>
+          <label className={styles.label}>Autor:</label>
+          <input className={styles.input} type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        </div>
+
+        <div className={styles.field}>
+          <label className={styles.label}>Editorial:</label>
+          <input className={styles.input} type="text" value={editorial} onChange={(e) => setEditorial(e.target.value)} />
+        </div>
+
+        <button className={styles.button} type="submit">Añadir Libro</button>
       </form>
 
       {/* Muestra la pila */}
-      <h2>Libros en la Pila (más reciente arriba)</h2>
+      <h2 className={styles.subtitle}>Libros en la Pila (más reciente arriba)</h2>
       {stack.isEmpty() ? (
-        <p>La pila está vacía.</p>
+        <p className={styles.empty}>La pila está vacía.</p>
       ) : (
-        <ul>
+        <ul className={styles.list}>
           {booksToDisplay.map((book, index) => (
-            <li key={index}>
+            <li className={styles.listItem} key={index}>
               <strong>{book.name}</strong> - ISBN: {book.isbn}, Autor: {book.author}, Editorial: {book.editorial}
             </li>
           ))}
