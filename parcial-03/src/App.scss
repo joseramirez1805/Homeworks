@@ -1,0 +1,102 @@
+@use "sass:color";
+$bg: #f6f8fb;
+$muted: #475569; 
+$accent: #2563eb;
+$surface: #ffffff;
+$panel: #ffffff; 
+$panel-border: rgba(15,23,36,0.06);
+$green: #16a34a; 
+$white: #ffffff;
+$panel-shadow: 0 6px 18px rgba(15,23,36,0.06);
+
+$font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+@mixin card($pad: 12px) {
+  background: $panel;
+  border: 1px solid $panel-border;
+  padding: $pad;
+  box-sizing: border-box;
+}
+
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem;
+  font-family: $font-sans;
+  color: $muted;
+}
+
+.app-root {
+  header { text-align: center; margin-bottom: 18px }
+  header h1 { margin: 0; font-size: 2.4rem; color: color.adjust($accent, $lightness: 24%); letter-spacing: -0.6px }
+}
+
+.network-root {
+  display: flex;
+  gap: 18px;
+  height: calc(100vh - 180px);
+  align-items: stretch;
+}
+
+.panel {
+  @include card();
+  color: $muted;
+  border-radius: 10px;
+  box-shadow: $panel-shadow;
+}
+.panel.left { width: 340px; overflow: auto }
+.panel.right { flex: 1; min-width: 360px; display: flex; flex-direction: column }
+
+.panel.right .content-card { background: $white; border-radius: 8px; padding: 12px; box-shadow: 0 4px 10px rgba(15,23,36,0.04); color: #0f1720 }
+
+ .city-list { list-style: none; padding: 0; margin: 8px 0 }
+ .city-list li { display:flex; gap:8px; align-items:center; justify-content:space-between; padding:8px 6px; border-radius:6px }
+ .city-list li.selected { background: color.adjust($accent, $lightness: 52%); }
+
+button { 
+  border-radius: 8px;
+  border: none;
+  padding: 0.45em 0.8em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background-color: $accent;
+  color: $white;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(37,99,235,0.12);
+}
+button.small { padding:6px 8px; font-size:0.82rem }
+button.primary { background: linear-gradient(180deg, $accent, color.adjust($accent, $lightness: -8%)); }
+button.ghost { background: transparent; border: 1px solid rgba(15,23,36,0.06); color: $muted }
+
+input, select, textarea { background: #fbfdff; border: 1px solid rgba(15,23,36,0.06); padding: 8px; color: #0f1720; border-radius: 6px }
+
+.h-section { font-weight:700; font-size:1.05rem; color: #0f1720; margin-bottom: 8px }
+
+.zone-controls input, .zone-edit input, select { width: 100%; margin-bottom:8px; padding:8px; background: transparent; border:1px solid rgba(255,255,255,0.06); color: inherit }
+
+.zone-tree-component { margin-top: 8px }
+.zone-tree-ul { list-style: none; padding: 0; margin: 0 }
+.zone-node { margin: 6px 0 }
+.zone-row { display:flex; align-items:center; gap:8px }
+.zone-toggle { background: transparent; border: none; color: $muted; cursor: pointer; font-size: 0.95rem; width: 20px; }
+.zone-name { background: transparent; border: none; color: #0f1720; text-align: left; cursor: pointer }
+.zone-add { background: $green; border: 1px solid color.adjust($green, $lightness: -10%); color: #fff; padding: 4px 8px; border-radius: 6px }
+.zone-del { margin-left: 8px; background:#ef4444; border:1px solid color.adjust(#ef4444, $lightness: -12%); color:#fff; padding:6px 8px; border-radius:6px }
+
+.node-info { padding: 8px; border-bottom: 1px solid rgba(15,23,36,0.04); margin-bottom: 8px; text-align: left }
+
+
+
+.force-graph-container { height: 100%; width: 100%; position: relative; overflow: hidden; background: #fff; border-radius: 8px }
+.force-graph-canvas { width: 100%; height: 100% }
+
+.panel.right { color: #0f1720 }
+
+.graph-controls { display:flex; gap:8px; align-items:center }
+.graph-controls label { color: #666; font-size: 0.9rem }
+
+@media (max-width: 900px) {
+  .network-root { flex-direction: column; height: auto }
+  .panel.left { width: 100%; max-height: 360px }
+  .panel.right { width: 100%; min-height: 300px }
+}

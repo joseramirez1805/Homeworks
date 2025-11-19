@@ -1,0 +1,21 @@
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --text: #0f1720;
+  --muted: #64748b;
+  --accent: #2563eb;
+}
+
+* { box-sizing: border-box }
+html, body, #root { height: 100% }
+body {
+  margin: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+a { color: var(--accent); text-decoration: none }
+
+h1 { font-size: 2.4rem; margin: 8px 0 14px }
